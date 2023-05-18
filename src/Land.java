@@ -18,7 +18,6 @@ public class Land extends RealProperty{
             case AGRICULTURAL -> getPrice() * 0.002;
             case SETTLEMENT -> getPrice() * 0.003;
             case INDUSTRIAL -> getPrice() * 0.005;
-            default -> 0; // если назначение не определено
         };
 }
 

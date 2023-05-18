@@ -1,6 +1,5 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
         /*
         В ходе разговора с заказчиком было выяснено,
         что он хочет построить модель города для своей компании
@@ -52,5 +51,18 @@ public class Main {
                                             Релиз 4
               Подойдите творчески к заданию. Добавьте функционал на ваше усмотрение.
          */
+
+        Person ivan = new Person("Ivan","Petrov");
+        Person lena = new Person("Lena","Koval");
+        Person sonya = new Person("Sonya","Ivanova");
+
+        Land land1 = new Land(ivan,"54:35:091455:15",15,20000,Purpose.SETTLEMENT);
+        Land land2 = new Land(lena,"54:35:091455:15",5,500,Purpose.AGRICULTURAL);
+        Land land3 = new Land(sonya,"54:35:091455:15",20,120000,Purpose.INDUSTRIAL);
+
+        System.out.println(land1.getPropertyTax());
+        System.out.println(land2.getPropertyTax());
+        System.out.println(land3.getPropertyTax());
+
     }
 }
