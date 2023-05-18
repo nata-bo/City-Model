@@ -74,9 +74,15 @@ public class Main {
         System.out.println(forest2.getPropertyTax());
 
         ArrayList<Person> residentsList = new ArrayList<>(List.of(ivan,lena,sonya,jack,john));
+        ArrayList<Person> residentsList2 = new ArrayList<>(List.of(ivan,sonya));
 
         House house1 = new House(jack,"38:18:23612:32",350,980000,3,residentsList);
         System.out.println(house1.getPropertyTax());
+
+        Apartment apartment1 = new Apartment(ivan,"21:47:92306:21",100,250000,3,residentsList2);
+        System.out.println(apartment1.getPropertyTax());
+
+
 
 
     }
