@@ -12,7 +12,7 @@ public class Land extends RealProperty{
                 "purpose=" + purpose +
                 "} " + super.toString();
     }
-
+    @Override
     public double getPropertyTax(){
         return switch (purpose) {
             case AGRICULTURAL -> getPrice() * 0.002;
