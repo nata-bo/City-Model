@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
         /*
@@ -55,6 +58,8 @@ public class Main {
         Person ivan = new Person("Ivan","Petrov");
         Person lena = new Person("Lena","Koval");
         Person sonya = new Person("Sonya","Ivanova");
+        Person john = new Person("John","Black");
+        Person jack = new Person("Jack","Tamp");
 
         Land land1 = new Land(ivan,"54:35:091455:15",15,20000,Purpose.SETTLEMENT);
         Land land2 = new Land(lena,"54:35:184532:15",5,500,Purpose.AGRICULTURAL);
@@ -63,14 +68,15 @@ public class Main {
         System.out.println(land2.getPropertyTax());
         System.out.println(land3.getPropertyTax());
 
-        Forest forest1 = new Forest(new Person("John","Black"),"34:75:1534:97",120,250000,false);
-        Forest forest2 = new Forest(new Person("Jack","Tamp"),"64:81:4738:10",220,1250000,true);
+        Forest forest1 = new Forest(john,"34:75:1534:97",120,250000,false);
+        Forest forest2 = new Forest(jack,"64:81:4738:10",220,1250000,true);
         System.out.println(forest1.getPropertyTax());
         System.out.println(forest2.getPropertyTax());
 
+        ArrayList<Person> residentsList = new ArrayList<>(List.of(ivan,lena,sonya,jack,john));
 
-
-
+        House house1 = new House(jack,"38:18:23612:32",350,980000,3,residentsList);
+        System.out.println(house1.getPropertyTax());
 
 
     }
