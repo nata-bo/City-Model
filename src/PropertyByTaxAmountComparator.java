@@ -1,6 +1,6 @@
 import java.util.Comparator;
 
-public class RealPropertyByTaxAmount implements Comparator<RealProperty> {
+public class PropertyByTaxAmountComparator implements Comparator<RealProperty> {
 
     @Override
     public int compare(RealProperty o1, RealProperty o2) {
