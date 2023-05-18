@@ -1,10 +1,9 @@
 public class Forest extends RealProperty {
     private final boolean isProtectedZone;
 
-    public Forest(Person owner, String cadastralNumber, double area, double price, boolean isProtectedZone) {
-        super(owner, cadastralNumber, area, price);
+    public Forest(Person owner, String cadastralNumber, double area, double price, String address, boolean isProtectedZone) {
+        super(owner, cadastralNumber, area, price, address);
         this.isProtectedZone = isProtectedZone;
-
     }
 
     @Override

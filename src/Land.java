@@ -1,8 +1,8 @@
 public class Land extends RealProperty {
     private final Purpose purpose;
 
-    public Land(Person owner, String cadastralNumber, double area, double price, Purpose purpose) {
-        super(owner, cadastralNumber, area, price);
+    public Land(Person owner, String cadastralNumber, double area, double price, String address, Purpose purpose) {
+        super(owner, cadastralNumber, area, price, address);
         this.purpose = purpose;
     }
 

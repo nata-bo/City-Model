@@ -4,10 +4,9 @@ public class House extends RealProperty {
     private final int numberOfFloors;
     ArrayList<Person> residents;
 
-
     public House(Person owner, String cadastralNumber, double area, double price,
-                 int numberOfFloors, ArrayList<Person> residents) {
-        super(owner, cadastralNumber, area, price);
+                 String address, int numberOfFloors, ArrayList<Person> residents) {
+        super(owner, cadastralNumber, area, price, address);
         this.numberOfFloors = numberOfFloors;
         this.residents = residents;
     }
