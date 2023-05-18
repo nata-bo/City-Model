@@ -57,12 +57,21 @@ public class Main {
         Person sonya = new Person("Sonya","Ivanova");
 
         Land land1 = new Land(ivan,"54:35:091455:15",15,20000,Purpose.SETTLEMENT);
-        Land land2 = new Land(lena,"54:35:091455:15",5,500,Purpose.AGRICULTURAL);
-        Land land3 = new Land(sonya,"54:35:091455:15",20,120000,Purpose.INDUSTRIAL);
-
+        Land land2 = new Land(lena,"54:35:184532:15",5,500,Purpose.AGRICULTURAL);
+        Land land3 = new Land(sonya,"54:35:425753:11",20,120000,Purpose.INDUSTRIAL);
         System.out.println(land1.getPropertyTax());
         System.out.println(land2.getPropertyTax());
         System.out.println(land3.getPropertyTax());
+
+        Forest forest1 = new Forest(new Person("John","Black"),"34:75:1534:97",120,250000,false);
+        Forest forest2 = new Forest(new Person("Jack","Tamp"),"64:81:4738:10",220,1250000,true);
+        System.out.println(forest1.getPropertyTax());
+        System.out.println(forest2.getPropertyTax());
+
+
+
+
+
 
     }
 }
