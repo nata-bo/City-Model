@@ -55,34 +55,35 @@ public class Main {
               Подойдите творчески к заданию. Добавьте функционал на ваше усмотрение.
          */
 
-        Person ivan = new Person("Ivan","Petrov");
-        Person lena = new Person("Lena","Koval");
-        Person sonya = new Person("Sonya","Ivanova");
-        Person john = new Person("John","Black");
-        Person jack = new Person("Jack","Tamp");
+        Person ivan = new Person("Ivan", "Petrov");
+        Person lena = new Person("Lena", "Koval");
+        Person sonya = new Person("Sonya", "Ivanova");
+        Person john = new Person("John", "Black");
+        Person jack = new Person("Jack", "Tamp");
 
-        Land land1 = new Land(ivan,"54:35:091455:15",15,20000,Purpose.SETTLEMENT);
-        Land land2 = new Land(lena,"54:35:184532:15",5,500,Purpose.AGRICULTURAL);
-        Land land3 = new Land(sonya,"54:35:425753:11",20,120000,Purpose.INDUSTRIAL);
+        Land land1 = new Land(ivan, "54:35:091455:15", 15, 20000, Purpose.SETTLEMENT);
+        Land land2 = new Land(lena, "54:35:184532:15", 5, 500, Purpose.AGRICULTURAL);
+        Land land3 = new Land(sonya, "54:35:425753:11", 20, 120000, Purpose.INDUSTRIAL);
         System.out.println(land1.getPropertyTax());
         System.out.println(land2.getPropertyTax());
         System.out.println(land3.getPropertyTax());
 
-        Forest forest1 = new Forest(john,"34:75:1534:97",120,250000,false);
-        Forest forest2 = new Forest(jack,"64:81:4738:10",220,1250000,true);
+        Forest forest1 = new Forest(john, "34:75:1534:97", 120, 250000, false);
+        Forest forest2 = new Forest(jack, "64:81:4738:10", 220, 1250000, true);
         System.out.println(forest1.getPropertyTax());
         System.out.println(forest2.getPropertyTax());
 
-        ArrayList<Person> residentsList = new ArrayList<>(List.of(ivan,lena,sonya,jack,john));
-        ArrayList<Person> residentsList2 = new ArrayList<>(List.of(ivan,sonya));
+        ArrayList<Person> residentsList = new ArrayList<>(List.of(ivan, lena, sonya, jack, john));
+        ArrayList<Person> residentsList2 = new ArrayList<>(List.of(ivan, sonya));
 
-        House house1 = new House(jack,"38:18:23612:32",350,980000,3,residentsList);
+        House house1 = new House(jack, "38:18:23612:32", 350, 980000, 3, residentsList);
         System.out.println(house1.getPropertyTax());
 
-        Apartment apartment1 = new Apartment(ivan,"21:47:92306:21",100,250000,3,residentsList2);
+        Apartment apartment1 = new Apartment(ivan, "21:47:92306:21", 100, 250000, 3, residentsList2);
         System.out.println(apartment1.getPropertyTax());
 
-
+        Garage garage1 = new Garage(lena, "10:32:64321:47", 25, 10000, 1);
+        System.out.println(garage1.getPropertyTax());
 
 
     }

@@ -1,10 +1,10 @@
 public abstract class RealProperty {
-   private final String cadastralNumber;
-   private double price;
+    private final String cadastralNumber;
+    private double price;
     Person owner;
     double area;
 
-    public RealProperty(Person owner,String cadastralNumber, double area, double price) {
+    public RealProperty(Person owner, String cadastralNumber, double area, double price) {
         this.cadastralNumber = cadastralNumber;
         this.price = price;
         this.owner = owner;
@@ -17,11 +17,12 @@ public abstract class RealProperty {
                 "cadastralNumber='" + cadastralNumber + '\'' +
                 ", owner=" + owner +
                 ", area=" + area +
-                ", price=" + price+
+                ", price=" + price +
                 '}';
     }
-    public double getPropertyTax(){
-        return price*0.001;
+
+    public double getPropertyTax() {
+        return price * 0.001;
     }
 
     public double getPrice() {

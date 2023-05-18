@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
-public class Apartment extends RealProperty{
-    private int numberOfRoom;
+public class Apartment extends RealProperty {
+    private final int numberOfRoom;
     ArrayList<Person> residents;
 
     public Apartment(Person owner, String cadastralNumber, double area,
@@ -18,8 +18,9 @@ public class Apartment extends RealProperty{
                 ", residents=" + residents +
                 "} " + super.toString();
     }
+
     @Override
-    public double getPropertyTax(){
-        return getPrice()*0.004;
+    public double getPropertyTax() {
+        return getPrice() * 0.004;
     }
 }

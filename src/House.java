@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
-public class House extends RealProperty{
-    private int numberOfFloors;
+public class House extends RealProperty {
+    private final int numberOfFloors;
     ArrayList<Person> residents;
 
 
@@ -19,8 +19,9 @@ public class House extends RealProperty{
                 ", residents=" + residents +
                 "} " + super.toString();
     }
+
     @Override
-    public double getPropertyTax(){
-        return getPrice()*0.003;
+    public double getPropertyTax() {
+        return getPrice() * 0.003;
     }
 }

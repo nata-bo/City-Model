@@ -1,7 +1,7 @@
 public class Person {
     private String firstName;
     private String lastName;
-    private int id;
+    private final int id;
     private static int personCounter = 0;
 
     public Person(String firstName, String lastName) {
