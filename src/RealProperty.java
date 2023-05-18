@@ -1,7 +1,7 @@
 public abstract class RealProperty {
     private final String cadastralNumber;
     private double price;
-    Person owner;
+    private Person owner;
     private double area;
     private String address;
 
@@ -36,6 +36,9 @@ public abstract class RealProperty {
     public String getAddress() {
         return address;
     }
+    public double getArea() {
+        return area;
+    }
 
     public void setPrice(double price) {
         this.price = price;
@@ -49,9 +52,6 @@ public abstract class RealProperty {
         this.area = area;
     }
 
-    public double getArea() {
-        return area;
-    }
 
     public Person getOwner() {
         return owner;

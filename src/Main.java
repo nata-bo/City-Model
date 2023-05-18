@@ -75,6 +75,7 @@ public class Main {
 
         ArrayList<Person> residentsList = new ArrayList<>(List.of(ivan, lena, sonya, jack, john));
         ArrayList<Person> residentsList2 = new ArrayList<>(List.of(ivan, sonya));
+        ArrayList<Person> residentsList3 = new ArrayList<>(List.of(lena));
 
         House house1 = new House(jack, "38:18:23612:32", 350, 980000, "Lviv", 3, residentsList);
         System.out.println(house1.getPropertyTax());
@@ -105,7 +106,23 @@ public class Main {
         System.out.println(arrayOfEstates);
         getSortedListByArea(arrayOfEstates);
         System.out.println(arrayOfEstates);
+
+         addHouseOnTheLand(land1,
+                new House(ivan,"36:76:85432:54",250,250000,"Dondorf",2,residentsList2));
+         addHouseOnTheLand(land2,
+                 new House(lena,"34:87:07008:78",100,25000,"Kemnat",1,residentsList3));
+
+         changedOwnerOfApartment(jack,apartment1);
+         System.out.println(apartment1);
+
+
+
+
+
+
+
     }
+
 
     public static void getSortedByPriceList(ArrayList<RealProperty> list) {
         list.sort(new PropertyByTotalPriceComparator());
@@ -121,6 +138,17 @@ public class Main {
 
     public static void getSortedListByAddress(ArrayList<RealProperty> list) {
         list.sort(new PropertyByAddressComparator());
+    }
+    public static void addHouseOnTheLand(Land land,House house){
+        if (land.getPurpose() == Purpose.SETTLEMENT || land.getPurpose() == Purpose.INDUSTRIAL) {
+            land.addHouse(house);
+            System.out.println("Дом "+house+" построен");
+        }else {
+            System.out.println("Строительство домов в сельскохозяйственной зоне запрещено");
+        }
+    }
+    public static void changedOwnerOfApartment(Person person,Apartment apartment){
+        apartment.setOwner(person);
     }
 
 }
