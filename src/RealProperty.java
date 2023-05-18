@@ -33,6 +33,10 @@ public abstract class RealProperty {
         return price;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
     public void setPrice(double price) {
         this.price = price;
     }
