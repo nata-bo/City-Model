@@ -69,9 +69,9 @@ public class Main {
         System.out.println(land3.getPropertyTax());
 
         Forest forest1 = new Forest(john, "34:75:1534:97", 120, 250000, "Kiev", false);
-        Forest forest2 = new Forest(jack, "64:81:4738:10", 220, 1250000, "Munchberg", true);
+        Forest forestPark = new Forest(jack, "64:81:4738:10", 220, 1250000, "Munchberg", true);
         System.out.println(forest1.getPropertyTax());
-        System.out.println(forest2.getPropertyTax());
+        System.out.println(forestPark.getPropertyTax());
 
         ArrayList<Person> residentsList = new ArrayList<>(List.of(ivan, lena, sonya, jack, john));
         ArrayList<Person> residentsList2 = new ArrayList<>(List.of(ivan, sonya));
@@ -87,7 +87,7 @@ public class Main {
         System.out.println(garage1.getPropertyTax());
 
         ArrayList<RealProperty> arrayOfEstates = new ArrayList<>(List.of
-                (land1, land2, land3, forest1, forest2, house1, apartment1, garage1)
+                (land1, land2, land3, forest1, forestPark, house1, apartment1, garage1)
         );
 //        arrayOfEstates.sort(new PropertyByAddressComparator());
 //        System.out.println(arrayOfEstates);
@@ -107,20 +107,27 @@ public class Main {
         getSortedListByArea(arrayOfEstates);
         System.out.println(arrayOfEstates);
 
-         addHouseOnTheLand(land1,
-                new House(ivan,"36:76:85432:54",250,250000,"Dondorf",2,residentsList2));
-         addHouseOnTheLand(land2,
-                 new House(lena,"34:87:07008:78",100,25000,"Kemnat",1,residentsList3));
+        addHouseOnTheLand(land1,
+                new House(ivan, "36:76:85432:54", 250, 250000, "Dondorf", 2, residentsList2));
+        addHouseOnTheLand(land2,
+                new House(lena, "34:87:07008:78", 100, 25000, "Kemnat", 1, residentsList3));
 
-         changedOwnerOfApartment(jack,apartment1);
-         System.out.println(apartment1);
+        changedOwnerOfApartment(jack, apartment1);
+        System.out.println(apartment1);
+
+        forest1.addTree(250);
+        System.out.println(forest1);
+        forest1.removeTree(25);
+        System.out.println(forest1);
 
 
-
-
-
-
-
+       List<Forest> forestList = divForestIntoTwoParts(forest1, lena, sonya);
+        Forest forest2 =forestList.get(0);
+        Forest forest3 = forestList.get(1);
+        System.out.println(forest2);
+        System.out.println(forest3);
+        Land changeLand = changePurposeToSETTLEMENT(forest2);
+        System.out.println(changeLand);
     }
 
 
@@ -139,16 +146,39 @@ public class Main {
     public static void getSortedListByAddress(ArrayList<RealProperty> list) {
         list.sort(new PropertyByAddressComparator());
     }
-    public static void addHouseOnTheLand(Land land,House house){
+
+    //строительство дома на участке
+    public static void addHouseOnTheLand(Land land, House house) {
         if (land.getPurpose() == Purpose.SETTLEMENT || land.getPurpose() == Purpose.INDUSTRIAL) {
             land.addHouse(house);
-            System.out.println("Дом "+house+" построен");
-        }else {
+            System.out.println("Дом " + house + " построен");
+        } else {
             System.out.println("Строительство домов в сельскохозяйственной зоне запрещено");
         }
     }
-    public static void changedOwnerOfApartment(Person person,Apartment apartment){
+
+    // метод, который меняет собственника
+    public static void changedOwnerOfApartment(Person person, Apartment apartment) {
         apartment.setOwner(person);
     }
+
+    public static List<Forest> divForestIntoTwoParts(Forest forest, Person person1, Person person2) {
+        double area1 = forest.getArea() * 0.1;
+        int tree1 = forest.getTree() * 10 / 100;
+        double area2 = forest.getArea() - area1;
+        int tree2 = forest.getTree() - tree1;
+        Forest forest2 = new Forest(person1, "20:10:99088:24", area1, 200000, "Kiev", false);
+        forest2.setTree(tree1);
+        Forest forest3 = new Forest(person2, "52:98:00043:14", area2, 50000, "Kiev", false);
+        forest3.setTree(tree2);
+        return new ArrayList<>(List.of(forest2, forest3));
+    }
+      // метод, который меняет назначение участка с леса на землю под строительство дома
+    public static Land changePurposeToSETTLEMENT(Forest forest){
+        forest.removeTree(forest.getTree());
+        return new Land(forest.getOwner(),forest.getCadastralNumber(),
+                forest.getArea(), forest.getPrice(), forest.getAddress(),Purpose.SETTLEMENT );
+    }
+
 
 }

@@ -3,7 +3,7 @@ public abstract class RealProperty {
     private double price;
     private Person owner;
     private double area;
-    private String address;
+    private final String address;
 
 
     public RealProperty(Person owner, String cadastralNumber, double area, double price,String address) {
@@ -27,6 +27,10 @@ public abstract class RealProperty {
 
     public double getPropertyTax() {
         return price * 0.001;
+    }
+
+    public String getCadastralNumber() {
+        return cadastralNumber;
     }
 
     public double getPrice() {
